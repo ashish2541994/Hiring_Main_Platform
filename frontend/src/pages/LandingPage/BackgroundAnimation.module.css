@@ -1,0 +1,66 @@
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.gradientOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(
+      ellipse 80% 50% at 50% -20%,
+      hsla(220, 80%, 60%, 0.15),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 50% 60% at 80% 80%,
+      hsla(260, 70%, 50%, 0.1),
+      transparent
+    ),
+    radial-gradient(
+      ellipse 40% 50% at 10% 60%,
+      hsla(190, 70%, 50%, 0.08),
+      transparent
+    );
+}
+
+.noiseOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.3;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  mix-blend-mode: overlay;
+}
+
+@media (max-width: 768px) {
+  .gradientOverlay {
+    background:
+      radial-gradient(
+        ellipse 100% 40% at 50% -10%,
+        hsla(220, 80%, 60%, 0.12),
+        transparent
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 80% 90%,
+        hsla(260, 70%, 50%, 0.08),
+        transparent
+      );
+  }
+}

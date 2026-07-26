@@ -1,0 +1,522 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Background Colors */
+    --background: 0 0% 100%;
+    --surface: 0 0% 98%;
+    --surface-hover: 0 0% 95%;
+
+    /* Text Colors */
+    --foreground: 222.2 84% 4.9%;
+    --foreground-secondary: 220 14% 20%;
+    --foreground-muted: 215.4 16.3% 46.9%;
+    --foreground-disabled: 215 20% 65%;
+
+    /* Card Colors */
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --card-hover: 0 0% 98%;
+
+    /* Primary Colors - Blue */
+    --primary: 221.2 83.2% 53.3%;
+    --primary-hover: 221.2 83.2% 48%;
+    --primary-active: 221.2 83.2% 43%;
+    --primary-foreground: 210 40% 98%;
+    --primary-light: 221.2 83.2% 95%;
+    --primary-dark: 221.2 83.2% 35%;
+
+    /* Secondary Colors - Purple */
+    --secondary: 262.1 83.3% 57.8%;
+    --secondary-hover: 262.1 83.3% 52%;
+    --secondary-active: 262.1 83.3% 47%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-light: 262.1 83.3% 95%;
+
+    /* Accent Colors - Indigo */
+    --accent: 239 84% 67%;
+    --accent-hover: 239 84% 62%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Success Colors - Green */
+    --success: 142.1 76.2% 36.3%;
+    --success-hover: 142.1 76.2% 31%;
+    --success-light: 142.1 76.2% 95%;
+    --success-foreground: 210 40% 98%;
+
+    /* Warning Colors - Amber */
+    --warning: 38 92% 50%;
+    --warning-hover: 38 92% 45%;
+    --warning-light: 38 92% 95%;
+    --warning-foreground: 210 40% 98%;
+
+    /* Danger Colors - Red */
+    --danger: 0 84.2% 60.2%;
+    --danger-hover: 0 84.2% 55%;
+    --danger-light: 0 84.2% 95%;
+    --danger-foreground: 210 40% 98%;
+
+    /* Info Colors - Sky */
+    --info: 199 89% 48%;
+    --info-hover: 199 89% 43%;
+    --info-light: 199 89% 95%;
+    --info-foreground: 210 40% 98%;
+
+    /* Muted Colors */
+    --muted: 210 40% 96.1%;
+    --muted-hover: 210 40% 92%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    /* Border Colors */
+    --border: 214.3 31.8% 91.4%;
+    --border-hover: 214.3 31.8% 85%;
+    --border-light: 214.3 31.8% 95%;
+
+    /* Input Colors */
+    --input: 214.3 31.8% 91.4%;
+    --input-hover: 214.3 31.8% 85%;
+    --input-focus: 221.2 83.2% 53.3%;
+
+    /* Ring/Focus Colors */
+    --ring: 221.2 83.2% 53.3%;
+    --ring-offset: 0 0% 100%;
+
+    /* Radius */
+    --radius-sm: 0.375rem;
+    --radius-md: 0.5rem;
+    --radius-lg: 0.75rem;
+    --radius-xl: 1rem;
+    --radius-2xl: 1.5rem;
+    --radius-full: 9999px;
+  }
+
+  .dark {
+    /* Background Colors */
+    --background: 222.2 84% 4.9%;
+    --surface: 217.2 32.6% 10%;
+    --surface-hover: 217.2 32.6% 15%;
+
+    /* Text Colors */
+    --foreground: 210 40% 98%;
+    --foreground-secondary: 215 20% 85%;
+    --foreground-muted: 215 20.2% 65.1%;
+    --foreground-disabled: 215 20% 40%;
+
+    /* Card Colors */
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --card-hover: 217.2 32.6% 10%;
+
+    /* Primary Colors - Blue */
+    --primary: 217.2 91.2% 59.8%;
+    --primary-hover: 217.2 91.2% 65%;
+    --primary-active: 217.2 91.2% 70%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary-light: 217.2 91.2% 15%;
+    --primary-dark: 217.2 91.2% 50%;
+
+    /* Secondary Colors - Purple */
+    --secondary: 263.4 70% 50.4%;
+    --secondary-hover: 263.4 70% 55%;
+    --secondary-active: 263.4 70% 60%;
+    --secondary-foreground: 210 40% 98%;
+    --secondary-light: 263.4 70% 15%;
+
+    /* Accent Colors - Indigo */
+    --accent: 238 84% 67%;
+    --accent-hover: 238 84% 72%;
+    --accent-foreground: 210 40% 98%;
+
+    /* Success Colors - Green */
+    --success: 142.1 70.6% 45.3%;
+    --success-hover: 142.1 70.6% 50%;
+    --success-light: 142.1 70.6% 15%;
+    --success-foreground: 210 40% 98%;
+
+    /* Warning Colors - Amber */
+    --warning: 48 96% 53%;
+    --warning-hover: 48 96% 58%;
+    --warning-light: 48 96% 15%;
+    --warning-foreground: 210 40% 98%;
+
+    /* Danger Colors - Red */
+    --danger: 0 62.8% 30.6%;
+    --danger-hover: 0 62.8% 35%;
+    --danger-light: 0 62.8% 15%;
+    --danger-foreground: 210 40% 98%;
+
+    /* Info Colors - Sky */
+    --info: 199 89% 48%;
+    --info-hover: 199 89% 53%;
+    --info-light: 199 89% 15%;
+    --info-foreground: 210 40% 98%;
+
+    /* Muted Colors */
+    --muted: 217.2 32.6% 17.5%;
+    --muted-hover: 217.2 32.6% 22%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    /* Border Colors */
+    --border: 217.2 32.6% 17.5%;
+    --border-hover: 217.2 32.6% 25%;
+    --border-light: 217.2 32.6% 12%;
+
+    /* Input Colors */
+    --input: 217.2 32.6% 17.5%;
+    --input-hover: 217.2 32.6% 25%;
+    --input-focus: 217.2 91.2% 59.8%;
+
+    /* Ring/Focus Colors */
+    --ring: 224.3 76.3% 48%;
+    --ring-offset: 222.2 84% 4.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+  }
+
+  /* Typography Scale */
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight;
+    line-height: 1.1;
+  }
+
+  h2 {
+    @apply text-3xl md:text-4xl font-bold tracking-tight;
+    line-height: 1.2;
+  }
+
+  h3 {
+    @apply text-2xl md:text-3xl font-semibold tracking-tight;
+    line-height: 1.3;
+  }
+
+  h4 {
+    @apply text-xl md:text-2xl font-semibold tracking-tight;
+    line-height: 1.4;
+  }
+
+  h5 {
+    @apply text-lg md:text-xl font-medium tracking-tight;
+    line-height: 1.5;
+  }
+
+  h6 {
+    @apply text-base md:text-lg font-medium tracking-tight;
+    line-height: 1.5;
+  }
+
+  p {
+    @apply text-base leading-relaxed;
+  }
+
+  small {
+    @apply text-sm leading-normal;
+  }
+}
+
+@layer utilities {
+
+  /* Glass Effects */
+  .glass {
+    @apply bg-white/10 backdrop-blur-md border border-white/20;
+  }
+
+  .glass-dark {
+    @apply bg-black/10 backdrop-blur-md border border-black/20;
+  }
+
+  .glass-card {
+    @apply bg-background/80 backdrop-blur-xl border border-border/50;
+  }
+
+  /* Gradients */
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-blue-600 to-purple-600;
+  }
+
+  .gradient-bg-subtle {
+    @apply bg-gradient-to-r from-blue-50 to-purple-50 dark:from-blue-950/20 dark:to-purple-950/20;
+  }
+
+  /* Spacing Utilities */
+  .spacing-xs {
+    padding: 0.5rem;
+    gap: 0.5rem;
+  }
+
+  .spacing-sm {
+    padding: 0.75rem;
+    gap: 0.75rem;
+  }
+
+  .spacing-md {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .spacing-lg {
+    padding: 1.5rem;
+    gap: 1.5rem;
+  }
+
+  .spacing-xl {
+    padding: 2rem;
+    gap: 2rem;
+  }
+
+  .spacing-2xl {
+    padding: 3rem;
+    gap: 3rem;
+  }
+
+  /* Shadow System */
+  .shadow-glow {
+    box-shadow: 0 0 20px hsl(var(--primary) / 0.3);
+  }
+
+  .shadow-glow-sm {
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.2);
+  }
+
+  .shadow-glow-purple {
+    box-shadow: 0 0 20px hsl(var(--secondary) / 0.3);
+  }
+
+  .shadow-soft {
+    box-shadow: 0 2px 8px 0 rgb(0 0 0 / 0.06), 0 1px 3px 0 rgb(0 0 0 / 0.04);
+  }
+
+  .shadow-float {
+    box-shadow: 0 8px 30px 0 rgb(0 0 0 / 0.12);
+  }
+
+  /* Border Radius Utilities */
+  .radius-sm {
+    border-radius: var(--radius-sm);
+  }
+
+  .radius-md {
+    border-radius: var(--radius-md);
+  }
+
+  .radius-lg {
+    border-radius: var(--radius-lg);
+  }
+
+  .radius-xl {
+    border-radius: var(--radius-xl);
+  }
+
+  .radius-2xl {
+    border-radius: var(--radius-2xl);
+  }
+
+  .radius-full {
+    border-radius: var(--radius-full);
+  }
+
+  /* Hover Effects */
+  .hover-lift {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px -8px rgb(0 0 0 / 0.15);
+  }
+
+  .hover-scale {
+    transition: transform 0.2s ease;
+  }
+
+  .hover-scale:hover {
+    transform: scale(1.02);
+  }
+
+  /* Focus Styles */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 focus:ring-offset-background;
+  }
+
+  /* Button Styles */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary-hover active:bg-primary-active focus-ring transition-all duration-200;
+  }
+
+  .btn-secondary {
+    @apply bg-secondary text-secondary-foreground hover:bg-secondary-hover active:bg-secondary-active focus-ring transition-all duration-200;
+  }
+
+  .btn-success {
+    @apply bg-success text-success-foreground hover:bg-success-hover focus-ring transition-all duration-200;
+  }
+
+  .btn-warning {
+    @apply bg-warning text-warning-foreground hover:bg-warning-hover focus-ring transition-all duration-200;
+  }
+
+  .btn-danger {
+    @apply bg-danger text-danger-foreground hover:bg-danger-hover focus-ring transition-all duration-200;
+  }
+
+  .btn-ghost {
+    @apply bg-transparent hover:bg-muted focus-ring transition-all duration-200;
+  }
+
+  .btn-outline {
+    @apply border border-border hover:bg-muted focus-ring transition-all duration-200;
+  }
+
+  /* Card Styles */
+  .card-premium {
+    @apply bg-card border border-border rounded-xl shadow-sm hover:shadow-md transition-all duration-200;
+  }
+
+  .card-hover {
+    @apply bg-card border border-border rounded-xl shadow-sm hover:shadow-lg hover:border-primary/30 transition-all duration-300 hover-lift;
+  }
+
+  /* Input Styles */
+  .input-premium {
+    @apply w-full px-4 py-2.5 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-transparent transition-all duration-200;
+  }
+
+  .input-error {
+    @apply border-danger focus:ring-danger;
+  }
+
+  .input-success {
+    @apply border-success focus:ring-success;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-gray-800;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-600 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-gray-500 dark:bg-gray-500;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animation utilities */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  from {
+    transform: translateX(20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+.animate-slide-down {
+  animation: slideDown 0.4s ease-out;
+}
+
+.animate-slide-left {
+  animation: slideLeft 0.4s ease-out;
+}
+
+.animate-slide-right {
+  animation: slideRight 0.4s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}

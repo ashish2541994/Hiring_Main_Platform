@@ -1,0 +1,182 @@
+.card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 20px;
+  padding: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow:
+    0 4px 20px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card:hover {
+  border-color: rgba(99, 102, 241, 0.3);
+  box-shadow:
+    0 20px 60px rgba(99, 102, 241, 0.15),
+    0 0 40px rgba(99, 102, 241, 0.05),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.glowBorder {
+  position: absolute;
+  inset: -1px;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  background: linear-gradient(
+    135deg,
+    transparent,
+    rgba(99, 102, 241, 0.3),
+    rgba(139, 92, 246, 0.3),
+    transparent
+  );
+  z-index: -1;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  padding: 1px;
+}
+
+.card:hover .glowBorder {
+  opacity: 1;
+}
+
+.cardContent {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.iconContainer {
+  width: 56px;
+  height: 56px;
+  border-radius: 16px;
+  background: linear-gradient(
+    135deg,
+    rgba(99, 102, 241, 0.15),
+    rgba(139, 92, 246, 0.15)
+  );
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.25rem;
+}
+
+.icon {
+  font-size: 1.5rem;
+  color: #818cf8;
+}
+
+.name {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
+  letter-spacing: -0.02em;
+}
+
+.description {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.statusBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.statusAvailable {
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.statusComingSoon {
+  background: rgba(234, 179, 8, 0.1);
+  border: 1px solid rgba(234, 179, 8, 0.2);
+  color: #eab308;
+}
+
+.statusIcon {
+  font-size: 0.85rem;
+}
+
+.actionWrapper {
+  width: 100%;
+  margin-top: 0.5rem;
+}
+
+.openBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3);
+}
+
+.openBtn:hover {
+  box-shadow: 0 6px 24px rgba(99, 102, 241, 0.4);
+}
+
+.openIcon {
+  font-size: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.openBtn:hover .openIcon {
+  transform: translateX(4px);
+}
+
+.disabledBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.9rem;
+  font-weight: 500;
+  padding: 0.7rem 1.5rem;
+  border-radius: 10px;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.lockIcon {
+  font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 1.5rem;
+  }
+
+  .name {
+    font-size: 1.15rem;
+  }
+}

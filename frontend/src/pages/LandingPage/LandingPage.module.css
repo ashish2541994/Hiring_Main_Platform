@@ -1,0 +1,29 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  background: #0a0a12;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Light mode support */
+:global(.light) .page {
+  background: #f8f9fc;
+  color: #0a0a12;
+}
+
+.main {
+  position: relative;
+  z-index: 1;
+}
+
+/* Smooth scrolling for the whole page */
+.page {
+  scroll-behavior: smooth;
+}
+
+/* Selection styling */
+.page ::selection {
+  background: rgba(99, 102, 241, 0.3);
+  color: white;
+}

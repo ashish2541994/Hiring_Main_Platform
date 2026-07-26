@@ -1,0 +1,43 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+}
+
+.text {
+  background: linear-gradient(135deg, #60a5fa, #a78bfa, #818cf8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+
+.cursor {
+  display: inline-block;
+  font-weight: 100;
+  font-size: inherit;
+  color: #818cf8;
+  margin-left: 2px;
+  transition: opacity 0.1s ease;
+  animation: cursorPulse 1s ease-in-out infinite;
+}
+
+.cursorVisible {
+  opacity: 1;
+}
+
+.cursorHidden {
+  opacity: 0;
+}
+
+@keyframes cursorPulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
