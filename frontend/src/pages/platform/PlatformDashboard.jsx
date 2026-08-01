@@ -90,7 +90,7 @@ const PlatformDashboard = () => {
             Hello, {user?.firstName || "there"}!
           </h1>
           <p className={styles.subheading}>
-            Welcome to the Vidhidhruv Solutions ecosystem. Explore our products
+            Welcome to the DhruVidhi Solutions ecosystem. Explore our products
             and tools below.
           </p>
         </motion.div>
