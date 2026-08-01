@@ -46,7 +46,7 @@ const Footer = () => {
               <div className={styles.logoIcon}>
                 <span>V</span>
               </div>
-              <span className={styles.logoText}>VIDHI SOL</span>
+              <span className={styles.logoText}>DhruVidhi Solution</span>
             </Link>
             <p className={styles.brandDesc}>
               Building powerful solutions for the modern world. One account,
