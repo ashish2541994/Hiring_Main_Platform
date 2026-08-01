@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import styles from "./TypingTitle.module.css";
 
 const TypingTitle = () => {
-  const fullText = "Vidhidhruv Solutions";
+  const fullText = "DhruVidhi Solutions";
   const [displayText, setDisplayText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
   const [showCursor, setShowCursor] = useState(true);
