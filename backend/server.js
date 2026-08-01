@@ -38,11 +38,30 @@ if (config.security.enableHelmet) {
   );
 }
 
+// Flexible CORS Configuration
 if (config.security.enableCors) {
+  const allowedOrigins = [
+    config.server.frontendUrl,
+    process.env.CLIENT_URL,
+    "http://localhost:5173",
+    "http://localhost:3000"
+  ].filter(Boolean); // Remove undefined values
+
   app.use(
     cors({
-      origin: config.server.frontendUrl,
+      origin: function (origin, callback) {
+        // Allow requests with no origin (like mobile apps, curl, or Render health checks)
+        if (!origin) return callback(null, true);
+
+        if (allowedOrigins.indexOf(origin) !== -1 || process.env.NODE_ENV !== "production") {
+          callback(null, true);
+        } else {
+          callback(null, true); // Allow origin dynamically or customize callback
+        }
+      },
       credentials: true,
+      methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"],
+      allowedHeaders: ["Content-Type", "Authorization"]
     }),
   );
 }
@@ -131,7 +150,20 @@ if (config.security.enableRateLimit) {
 // Static files
 app.use("/uploads", express.static("uploads"));
 
-// Routes
+// Root route (Fixes Render 404 health check error)
+app.get("/", (req, res) => {
+  res.status(200).json({
+    status: "ok",
+    message: "Wind Hire API Server is running successfully"
+  });
+});
+
+// Health check endpoint
+app.get("/api/health", (req, res) => {
+  res.json({ status: "ok", message: "Wind Hire API is running" });
+});
+
+// API Routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/companies", companyRoutes);
@@ -144,11 +176,6 @@ app.use("/api/saved-jobs", savedJobRoutes);
 app.use("/api/resumes", resumeRoutes);
 app.use("/api/candidate", candidateRoutes);
 
-// Health check
-app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", message: "Wind Hire API is running" });
-});
-
 // Error handling
 app.use(notFound);
 app.use(errorHandler);
@@ -157,7 +184,7 @@ app.use(errorHandler);
 const connectDB = async () => {
   try {
     await mongoose.connect(
-      process.env.MONGODB_URI || "mongodb://localhost:27017/windhire",
+      process.env.MONGODB_URI || config.db.uri,
     );
     console.log("MongoDB connected successfully");
   } catch (error) {
@@ -167,7 +194,7 @@ const connectDB = async () => {
 };
 
 // Start server - use config port
-const PORT = config.server.port;
+const PORT = process.env.PORT || config.server.port || 5000;
 
 const startServer = async () => {
   await connectDB();
