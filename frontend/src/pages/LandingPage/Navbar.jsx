@@ -60,9 +60,9 @@ const Navbar = () => {
             className={styles.logoContainer}
           >
             <div className={styles.logoIcon}>
-              <span>V</span>
+              <span>DVS</span>
             </div>
-            <span className={styles.logoText}>VIDHI SOL</span>
+            <span className={styles.logoText}>DhruVidhi Solutions</span>
           </motion.div>
         </Link>
 
